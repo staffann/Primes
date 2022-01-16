@@ -92,7 +92,7 @@ class prime_sieve(object):
     # runSieve, of course!
 
     def countPrimes(self):
-        return sum(1 for b in self.rawbits if b);
+        return sum(1 for b in self.rawbits if b)
 
     # printResults
     #
@@ -101,7 +101,7 @@ class prime_sieve(object):
     def printResults(self, showResults, duration, passes):
 
         if (showResults): # Since we auto-filter evens, we have to special case the number 2 which is prime
-            stdout.write("2, ");
+            stdout.write("2, ")
 
         count = 1
         for num in range (3, self.sieveSize): # Count (and optionally dump) the primes that were found below the limit
@@ -111,12 +111,12 @@ class prime_sieve(object):
                 count+=1
 
         assert(count == self.countPrimes())
-        stdout.write("\n");
-        print("Passes: " + str(passes) + ", Time: " + str(duration) + ", Avg: " + str(duration/passes) + ", Limit: " + str(self.sieveSize) + ", Count: " + str(count) + ", Valid: " + str(self.validateResults()))
+        stdout.write("\n")
+        print(f"Passes: {passes}, Time: {duration}, Avg: {duration/passes}, Limit: {self.sieveSize}, Count: {count}, Valid: {self.validateResults()}")
 
         # Following 2 lines added by rbergen to conform to drag race output format
-        stdout.write("\n");
-        print("davepl;" + str(passes) + ";" + str(duration) + ";1;algorithm=base,faithful=yes");
+        stdout.write("\n")
+        print(f"davepl;{passes};{duration};1;algorithm=base,faithful=yes")
 
 
 # MAIN Entry
